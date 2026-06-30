@@ -1,14 +1,25 @@
 @OfficeSystem_HostAddress = http://localhost:5286
 @host = https://localhost:7154
 
+### 회원가입
 POST {{host}}/api/auth/register
 Content-Type: application/json
 
 {
-  "Id": "test01",
-  "Password": "1234",
-  "Name": "홍길동",
-  "CompanyNum": "EMP001"
+  "loginId": "test01",
+  "password": "1234",
+  "name": "홍길동",
+  "employeeNumber": "EMP001"
 }
+
+### 로그인
+POST {{host}}/api/auth/login
+Content-Type: application/json
+
+{
+  "loginId": "test01",
+  "password": "1234"
+}
+
 
 ###
