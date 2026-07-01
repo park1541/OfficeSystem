@@ -19,7 +19,14 @@ namespace OfficeSystem.Controllers
         public async Task<IActionResult> Register([FromBody]RegisterRequest request) 
         {
             var user = await _userService.Register(request);
-            return Ok(user);
+            var response = new UserResponse
+            {
+                LoginId = user.LoginId,
+                Name = user.Name,
+                EmployeeNumber = user.EmployeeNumber,
+                RoleId = user.RoleId
+            };
+            return Ok(response);
         }
 
         [HttpPost("login")]
