@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using OfficeSystem.DTOs;
 using OfficeSystem.Services;
 
@@ -48,6 +49,18 @@ namespace OfficeSystem.Controllers
                 RoleId = result.User.RoleId
             };
             return Ok(new {token = result.Token, user = response});
+        }
+        [HttpGet("public")]
+        public IActionResult PublicTest()
+        {
+            return Ok("아무나 볼 수 있음");
+        }
+
+        [Authorize]
+        [HttpGet("secret")]
+        public IActionResult SecretTest()
+        {
+            return Ok("토큰 있어야 볼 수 있음");
         }
     }
 }
