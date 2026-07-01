@@ -9,9 +9,11 @@ namespace OfficeSystem.Services
     public class UserService : IUserService
     {
         private readonly OfficeDbContext _context;
-        public UserService(OfficeDbContext context)
+        private readonly IJwtService _jwtService;
+        public UserService(OfficeDbContext context, IJwtService jwtService)
         {
             _context = context;
+            _jwtService = jwtService;
         }
 
         public async Task<User> Register(RegisterRequest request)
@@ -31,7 +33,7 @@ namespace OfficeSystem.Services
             return user;
 
         }
-        public async Task<User?> Login(LoginRequest login)
+        public async Task<LoginResult?> Login(LoginRequest login)
         {
             var user = await _context.Users.FirstOrDefaultAsync(u => u.LoginId == login.LoginId);
             if (user == null)
@@ -42,7 +44,13 @@ namespace OfficeSystem.Services
             {
                 return null;
             }
-            return user;
+            var token = _jwtService.GenerateToken(user);
+           
+            return new LoginResult
+            {
+                User = user,
+                Token = token
+            };
         }
     }
 }

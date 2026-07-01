@@ -10,6 +10,7 @@ builder.Services.AddDbContext<OfficeDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddOpenApi();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IJwtService, JwtService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

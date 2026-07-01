@@ -6,6 +6,6 @@ namespace OfficeSystem.Services
     public interface IUserService
     {
         Task<User> Register(RegisterRequest request);
-        Task<User?> Login(LoginRequest login);
+        Task<LoginResult?> Login(LoginRequest login);
     }
 }

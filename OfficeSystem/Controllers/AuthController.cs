@@ -25,20 +25,20 @@ namespace OfficeSystem.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody]LoginRequest login)
         {
-            var user = await _userService.Login(login);
-            if(user == null)
+            var result = await _userService.Login(login);
+            if(result == null)
             {
                 return Unauthorized("아이디 혹은 비밀번호가 일치하지 않습니다.");
             }
 
             var response = new UserResponse
             {
-                LoginId = user.LoginId,
-                Name = user.Name,
-                EmployeeNumber = user.EmployeeNumber,
-                RoleId = user.RoleId
+                LoginId = result.User.LoginId,
+                Name = result.User.Name,
+                EmployeeNumber = result.User.EmployeeNumber,
+                RoleId = result.User.RoleId
             };
-            return Ok(response);
+            return Ok(new {token = result.Token, user = response});
         }
     }
 }
