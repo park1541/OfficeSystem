@@ -20,6 +20,19 @@ Content-Type: application/json
   "loginId": "test01",
   "password": "1234"
 }
+### 1. 토큰 없이 secret 호출 
+GET {{host}}/api/auth/secret
+###2. public 호출
+GET {{host}}/api/auth/public
+### 3. 로그인해서 토큰 받기
+POST {{host}}/api/auth/login
+Content-Type: application/json
 
-
+{
+  "loginId": "test01",
+  "password": "1234"
+}
+### 4. 토큰 갖고 secret 호출 → 이번엔 200 나야 함
+GET {{host}}/api/auth/secret
+Authorization: Bearer 토큰값
 ###
