@@ -11,6 +11,7 @@ namespace OfficeSystem.Data
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<User>().HasIndex(u => u.LoginId).IsUnique();
             modelBuilder.Entity<Role>().HasData(
                 new Role { Id = 1, Name = "일반직원" },
                 new Role { Id = 2, Name = "관리자" }

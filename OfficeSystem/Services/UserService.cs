@@ -16,8 +16,10 @@ namespace OfficeSystem.Services
             _jwtService = jwtService;
         }
 
-        public async Task<User> Register(RegisterRequest request)
+        public async Task<User?> Register(RegisterRequest request)
         {
+            if (await _context.Users.AnyAsync(u => u.LoginId == request.LoginId))
+                return null;
             string hashedPassword = BCrypt.Net.BCrypt.HashPassword(request.Password);
             var user = new User
             {

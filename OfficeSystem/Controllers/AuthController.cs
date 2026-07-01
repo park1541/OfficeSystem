@@ -19,6 +19,8 @@ namespace OfficeSystem.Controllers
         public async Task<IActionResult> Register([FromBody]RegisterRequest request) 
         {
             var user = await _userService.Register(request);
+            if (user == null)
+                return Conflict("이미 존재하는 아이디입니다.");
             var response = new UserResponse
             {
                 LoginId = user.LoginId,
