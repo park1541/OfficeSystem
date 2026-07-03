@@ -62,6 +62,13 @@ namespace OfficeSystem.Controllers
         {
             return Ok("토큰 있어야 볼 수 있음");
         }
+
+        [Authorize(Roles = "관리자")]
+        [HttpGet("admin-only")]
+        public IActionResult AdminOnly()
+        {
+            return Ok("관리자 확인 완료");
+        }
     }
 }
 
