@@ -24,7 +24,7 @@ namespace OfficeSystem.Services
             {
                 new Claim(JwtRegisteredClaimNames.Sub,user.Id.ToString()),
                 new Claim("loginId", user.LoginId),
-                new Claim("roleId", user.RoleId.ToString())
+                new Claim(ClaimTypes.Role, user.Role!.Name)
             };
 
             var token = new JwtSecurityToken(

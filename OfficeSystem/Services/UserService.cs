@@ -37,7 +37,7 @@ namespace OfficeSystem.Services
         }
         public async Task<LoginResult?> Login(LoginRequest login)
         {
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.LoginId == login.LoginId);
+            var user = await _context.Users.Include(u => u.Role).FirstOrDefaultAsync(u => u.LoginId == login.LoginId);
             if (user == null)
             {
                 return null;
