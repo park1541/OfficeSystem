@@ -1,5 +1,6 @@
 @OfficeSystem_HostAddress = http://localhost:5286
 @host = https://localhost:7154
+@token = 발급받은 토큰 붙여넣기
 
 ### 회원가입
 POST {{host}}/api/auth/register
@@ -34,10 +35,9 @@ Content-Type: application/json
 }
 ### 4. 토큰 갖고 secret 호출 → 이번엔 200 나야 함
 GET {{host}}/api/auth/secret
-Authorization: Bearer 토큰값
+Authorization: Bearer {{token}}
 ### 관리자 전용 - 토큰 없이 (401 기대)
 GET https://localhost:7154/api/auth/admin-only
 ### 관리자 전용 - 토큰 있이 (관리자면 200, 일반직원이면 403)
 GET https://localhost:7154/api/auth/admin-only
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0IiwibG9naW5JZCI6InRlc3QwMSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6Iuq0gOumrOyekCIsImV4cCI6MTc4MzA0ODY2MCwiaXNzIjoiT2ZmaWNlU3lzdGVtIiwiYXVkIjoiT2ZmaWNlU3lzdGVtVXNlcnMifQ.m6PYyT07B_EryshGKRF8JAoqXxi5rOr-XSghk9OrI90
-###
+Authorization: Bearer {{token}}
