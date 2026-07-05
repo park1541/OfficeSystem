@@ -1,4 +1,4 @@
-﻿namespace OfficeSystem.DTOs
+﻿namespace OfficeSystem.DTOs.Auth
 {
     public class RegisterRequest
     {

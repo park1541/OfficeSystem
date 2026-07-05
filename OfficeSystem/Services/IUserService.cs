@@ -1,5 +1,6 @@
-﻿using OfficeSystem.DTOs;
-using OfficeSystem.Models;
+﻿using OfficeSystem.DTOs.Auth;
+using OfficeSystem.Models.Users;
+using OfficeSystem.Results;
 
 namespace OfficeSystem.Services
 {

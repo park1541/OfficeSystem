@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using OfficeSystem.Models;
+using OfficeSystem.Models.Users;
 
 namespace OfficeSystem.Data
 {

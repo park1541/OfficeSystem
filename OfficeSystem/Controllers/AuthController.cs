@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using OfficeSystem.DTOs;
+using OfficeSystem.DTOs.Auth;
 using OfficeSystem.Services;
 
 namespace OfficeSystem.Controllers

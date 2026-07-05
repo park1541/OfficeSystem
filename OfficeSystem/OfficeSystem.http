@@ -1,16 +1,16 @@
 @OfficeSystem_HostAddress = http://localhost:5286
 @host = https://localhost:7154
-@token = 발급받은 토큰 붙여넣기
+@token = 토큰 복사 붙여넣기
 
 ### 회원가입
 POST {{host}}/api/auth/register
 Content-Type: application/json
 
 {
-  "loginId": "test01",
+  "loginId": "test02",
   "password": "1234",
-  "name": "홍길동",
-  "employeeNumber": "EMP001"
+  "name": "허균",
+  "employeeNumber": "EMP002"
 }
 
 ### 로그인
@@ -30,7 +30,7 @@ POST {{host}}/api/auth/login
 Content-Type: application/json
 
 {
-  "loginId": "test01",
+  "loginId": "test02",
   "password": "1234"
 }
 ### 4. 토큰 갖고 secret 호출 → 이번엔 200 나야 함

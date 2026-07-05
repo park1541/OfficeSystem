@@ -1,6 +1,6 @@
-﻿using OfficeSystem.Models;
+﻿using OfficeSystem.Models.Users;
 
-namespace OfficeSystem.DTOs
+namespace OfficeSystem.Results
 {
     public class LoginResult
     {

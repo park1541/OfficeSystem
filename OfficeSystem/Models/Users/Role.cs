@@ -1,4 +1,4 @@
-﻿namespace OfficeSystem.Models
+﻿namespace OfficeSystem.Models.Users
 {
     public class Role
     {
