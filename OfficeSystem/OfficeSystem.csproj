@@ -21,8 +21,6 @@
 
   <ItemGroup>
     <Folder Include="DTOs\Approval\" />
-    <Folder Include="Models\Enums\" />
-    <Folder Include="Models\Approval\" />
   </ItemGroup>
 
 </Project>
