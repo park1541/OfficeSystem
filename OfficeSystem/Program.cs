@@ -14,6 +14,7 @@ builder.Services.AddDbContext<OfficeDbContext>(options =>
 builder.Services.AddOpenApi();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IJwtService, JwtService>();
+builder.Services.AddScoped<IDocumentService, DocumentService>();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {

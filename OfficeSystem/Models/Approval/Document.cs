@@ -1,5 +1,6 @@
 ﻿using OfficeSystem.Models.Enums;
 using OfficeSystem.Models.Users;
+using System.ComponentModel.DataAnnotations;
 
 namespace OfficeSystem.Models.Approval
 {
@@ -11,7 +12,7 @@ namespace OfficeSystem.Models.Approval
 
         public int DrafterId { get; set; }
         public User Drafter { get; set; } = null!;
-
+        [MaxLength(50)]
         public string Title { get; set; } = null!;
         public string Content { get; set; } = null!;
 

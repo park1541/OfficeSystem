@@ -1,5 +1,4 @@
-﻿using BCrypt.Net;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using OfficeSystem.Data;
 using OfficeSystem.DTOs.Auth;
 using OfficeSystem.Models.Users;
