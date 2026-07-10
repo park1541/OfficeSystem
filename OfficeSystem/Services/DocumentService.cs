@@ -47,6 +47,7 @@ namespace OfficeSystem.Services
 
             var saved = await _context.Documents
                 .Include(d => d.DocumentType)
+                .Include(d => d.Drafter)
                 .Include(d => d.ApprovalLines)
                     .ThenInclude(l => l.Approver)
                 .FirstAsync(d => d.Id == document.Id);
@@ -56,6 +57,7 @@ namespace OfficeSystem.Services
                 Title = saved.Title,
                 Content = saved.Content,
                 DocumentType = saved.DocumentType.Name,          // 이름! saved에서 어떻게 꺼내죠?
+                DrafterName = saved.Drafter.Name,
                 Status = saved.Status.ToString(),                // enum → string, 오늘 정한 방법
                 CreatedAt = saved.CreatedAt,
                 ApprovalLines = saved.ApprovalLines

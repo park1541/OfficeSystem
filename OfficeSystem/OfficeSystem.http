@@ -1,16 +1,16 @@
 @OfficeSystem_HostAddress = http://localhost:5286
 @host = https://localhost:7154
-@token = 토큰 복사 붙여넣기
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0IiwibG9naW5JZCI6InRlc3QwMSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6Iuq0gOumrOyekCIsImV4cCI6MTc4MzcyODQzNywiaXNzIjoiT2ZmaWNlU3lzdGVtIiwiYXVkIjoiT2ZmaWNlU3lzdGVtVXNlcnMifQ.mlSVc-Exas30gP0vILap0pBlGDXh1YZL-4wCKodooMg
 
 ### 회원가입
 POST {{host}}/api/auth/register
 Content-Type: application/json
 
 {
-  "loginId": "test02",
+  "loginId": "test04",
   "password": "1234",
-  "name": "허균",
-  "employeeNumber": "EMP002"
+  "name": "세종대왕",
+  "employeeNumber": "EMP004"
 }
 
 ### 로그인
@@ -41,3 +41,14 @@ GET https://localhost:7154/api/auth/admin-only
 ### 관리자 전용 - 토큰 있이 (관리자면 200, 일반직원이면 403)
 GET https://localhost:7154/api/auth/admin-only
 Authorization: Bearer {{token}}
+### 상신 (위에서 받은 토큰 필요)
+POST {{host}}/api/document
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "연차 신청",
+  "content": "7월 15일 연차 사용합니다",
+  "documentTypeId": 1,
+  "approverIds": [6, 7]
+}

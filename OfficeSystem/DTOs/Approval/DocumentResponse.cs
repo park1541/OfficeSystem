@@ -3,6 +3,7 @@
     public class DocumentResponse
     {
         public int Id { get; set; }
+        public string DrafterName { get; set; } = string.Empty;
         public string Title { get; set; } = string.Empty;
         public string Content { get; set; } = string.Empty;
         public string DocumentType { get; set; } = string.Empty;
